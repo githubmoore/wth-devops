@@ -4,6 +4,7 @@ import Pet from "../models/Pet";
 import Hours from '../components/Hours';
 
 // TODO: Import Hours component
+import Hours from '../components/Hours';
 
 const Index = ({ pets }) => {
 
