@@ -1,0 +1,26 @@
+name: Code Scanning
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * *'  # Escaneo diario a medianoche
+
+jobs:
+  scan:
+    name: Run CodeQL Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3  # Actualizar a la versión más reciente de checkout
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/setup@v2  # Actualizar a la versión más reciente de setup
+      with:
+        languages: javascript, python  # Ajusta según los lenguajes que utilices
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2  # Actualizar a la versión más reciente de analyze
