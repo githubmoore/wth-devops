@@ -18,9 +18,6 @@ jobs:
       - name: Deploy Bicep template
         run: |
           az deployment group create \
-            --resource-group ${{ env.AZURE_RG }} \
+            --resource-group ${{ vars.AZURE_RG }} \
             --template-file ./config/main.bicep \
-            --parameters namePrefix=${{ env.AZURE_PREFIX }}
-    env:
-      AZURE_RG: ${{ vars.AZURE_RG }}
-      AZURE_PREFIX: ${{ vars.AZURE_PREFIX }}
+            --parameters namePrefix=${{ vars.AZURE_PREFIX }}
