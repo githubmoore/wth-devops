@@ -1,4 +1,4 @@
-name: Code Scanning
+name: CodeQL
 
 on:
   push:
@@ -6,21 +6,31 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 0 * * *'  # Escaneo diario a medianoche
+    - cron: '30 1 * * 1'  # Runs weekly at 01:30 UTC
 
 jobs:
-  scan:
-    name: Run CodeQL Analysis
+  analyze:
+    name: Analyze
     runs-on: ubuntu-latest
-
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript', 'python' ]
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3  # Actualizar a la versión más reciente de checkout
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/setup@v2  # Actualizar a la versión más reciente de setup
-      with:
-        languages: javascript, python  # Ajusta según los lenguajes que utilices
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2  # Actualizar a la versión más reciente de analyze
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
