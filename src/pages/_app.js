@@ -31,8 +31,8 @@ function MyApp({ Component, pageProps }) {
       <h1>Adoption Shelter</h1>
 
       <Image
-        id="title1"
-        src="https://th.bing.com/th/id/OIP.JFUAHICwNIshWpMKwjUD8gHaFj?rs=1&pid=ImgDetMain"
+        id="title"
+        src="https://raw.githubusercontent.com/github/pets-workshop/main/src/pics/roscoe.jpg"
         alt="pet care"
         width={300} // Ajusta el tamaño según sea necesario
         height={200} // Ajusta el tamaño según sea necesario
