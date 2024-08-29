@@ -23,19 +23,18 @@ function MyApp({ Component, pageProps }) {
           id="title"
           src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Pet_logo_with_flowers.png"
           alt="pet care logo"
-          width={200} // Ajusta el tamaño según sea necesario
-          height={100} // Ajusta el tamaño según sea necesario
+          width={200} // Adjust width as needed
+          height={100} // Adjust height as needed
         />
       </div>
 
       <h1>Adoption Shelter</h1>
 
       <Image
-        id="title"
         src="https://raw.githubusercontent.com/github/pets-workshop/main/src/pics/roscoe.jpg"
-        alt="pet care"
-        width={300} // Ajusta el tamaño según sea necesario
-        height={200} // Ajusta el tamaño según sea necesario
+        alt="Roscoe the dog"
+        width={300} // Adjust width as needed
+        height={200} // Adjust height as needed
       />
 
       <p>Alexander Moore</p>
@@ -48,4 +47,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
