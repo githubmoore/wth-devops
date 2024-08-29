@@ -15,7 +15,7 @@ jobs:
       - name: Set up Azure CLI
         uses: azure/setup-azure@v1
         with:
-          azure-version: 'latest'
+          version: 'latest'
 
       - name: Login to Azure
         uses: azure/login@v1
